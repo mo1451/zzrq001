@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: lxxfirst
+  thymeleaf:
+    prefix: classpath:/templates/
+    cache: false
+  devtools:
+      restart:
+        enabled: true  #设置开启热部署
+server:
+  port: 8070
+
