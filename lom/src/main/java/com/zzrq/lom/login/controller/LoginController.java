@@ -1,9 +1,12 @@
 package com.zzrq.lom.login.controller;
 
 import com.google.code.kaptcha.impl.DefaultKaptcha;
+import com.zzrq.lom.dto.User;
+import com.zzrq.lom.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,9 +19,39 @@ import java.io.ByteArrayOutputStream;
 
 @Controller
 public class LoginController {
+
+    @Autowired
+    private UserService userService;
+
     @GetMapping(value = "login")
     public String login() {
         return "login";
+    }
+
+    @PostMapping(value = "login")
+    public ModelAndView checkLogin(HttpServletRequest httpServletRequest,String inputUser,String inputPassword,String inputCode) {
+        ModelAndView andView = new ModelAndView();
+        String verifyCode = (String) httpServletRequest.getSession().getAttribute("verifyCode");
+     //   String parameter = httpServletRequest.getParameter("verifyCode");
+        System.out.println("Session  verifyCode "+verifyCode+" form verifyCode "+inputCode);
+
+        if (!verifyCode.equals(inputCode)) {
+            andView.addObject("msg", "错误的验证码");
+            andView.setViewName("login");
+        } else {
+            User user = userService.checkPassword(inputUser,inputPassword);
+            if(user == null) {
+                andView.addObject("msg", "用户名或密码错误");
+                andView.setViewName("login");
+            } else {
+                andView.addObject("msg", "登录成功");
+                httpServletRequest.getSession().setAttribute("user", user);
+                andView.addObject("user", user);
+                andView.setViewName("redirect:index");
+            }
+
+        }
+        return andView;
     }
 
     @Autowired
@@ -36,7 +69,7 @@ public class LoginController {
         try {
             //生产验证码字符串并保存到session中
             String createText = captchaProducer.createText();
-            httpServletRequest.getSession().setAttribute("vrifyCode", createText);
+            httpServletRequest.getSession().setAttribute("verifyCode", createText);
             //使用生产的验证码字符串返回一个BufferedImage对象并转为byte写入到byte数组中
             BufferedImage challenge = captchaProducer.createImage(createText);
             ImageIO.write(challenge, "jpg", jpegOutputStream);
