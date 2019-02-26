@@ -1,4 +1,4 @@
-package com.zzrq.lom.login.controller;
+package com.zzrq.lom.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

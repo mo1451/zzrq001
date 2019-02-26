@@ -1,4 +1,4 @@
-package com.zzrq.lom.login.controller;
+package com.zzrq.lom.controller;
 
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import com.zzrq.lom.dto.User;
