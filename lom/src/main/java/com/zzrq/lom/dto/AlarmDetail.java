@@ -8,12 +8,14 @@ public class AlarmDetail {
     private Long  alarmId;
     private Long nodeId;
     private Long gatewayId;
-    private Long sensorNumber;
+    private String sensorNumber;
     private String nodeName;
-    private String gatewayNeme;
+    private String gatewayName;
     private String userName;
     private Long phoneNumber;
     private String address;
+    private Double longitude;
+    private Double latitude;
 
     @Override
     public String toString() {
@@ -24,11 +26,29 @@ public class AlarmDetail {
                 ", gatewayId=" + gatewayId +
                 ", sensorNumber=" + sensorNumber +
                 ", nodeName='" + nodeName + '\'' +
-                ", gatewayNeme='" + gatewayNeme + '\'' +
+                ", gatewayName='" + gatewayName + '\'' +
                 ", userName='" + userName + '\'' +
                 ", phoneNumber=" + phoneNumber +
                 ", address='" + address + '\'' +
+                ", longitude=" + longitude +
+                ", latitude=" + latitude +
                 '}';
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
     }
 
     public Long getId() {
@@ -63,11 +83,11 @@ public class AlarmDetail {
         this.gatewayId = gatewayId;
     }
 
-    public Long getSensorNumber() {
+    public String getSensorNumber() {
         return sensorNumber;
     }
 
-    public void setSensorNumber(Long sensorNumber) {
+    public void setSensorNumber(String sensorNumber) {
         this.sensorNumber = sensorNumber;
     }
 
@@ -79,12 +99,12 @@ public class AlarmDetail {
         this.nodeName = nodeName;
     }
 
-    public String getGatewayNeme() {
-        return gatewayNeme;
+    public String getGatewayName() {
+        return gatewayName;
     }
 
-    public void setGatewayNeme(String gatewayNeme) {
-        this.gatewayNeme = gatewayNeme;
+    public void setGatewayName(String gatewayName) {
+        this.gatewayName = gatewayName;
     }
 
     public String getUserName() {

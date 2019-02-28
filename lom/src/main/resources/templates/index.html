@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>光行物联云平台</title>
-
+<script type="text/javascript" src="webjars/jquery/3.3.1/jquery.js"></script>
     <link href="webjars/bootstrap/4.0.0/css/bootstrap.css" rel="stylesheet">
 </head>
 <style>
@@ -63,10 +58,43 @@
         src="https://webapi.amap.com/maps?v=1.4.13&key=93610b75106543750abcc30991592462"></script>
 <script>
     window.onload = function () {
+
         var map = new AMap.Map('container', {
             zoom: 20,
             center: [118.9328300000, 32.1560600000]
         });
+
+
+        $.ajax({
+            type: "Post",
+            url: "alarm/detail/query",
+            dataType: "json",
+            success: function(data){
+                debugger;
+                for (var i = 0; i < data.rows.length; i++) {
+                    var sensorNumber = data.rows[i].sensorNumber;
+                    var longitude = data.rows[i].longitude;
+                    var latitude = data.rows[i].latitude;
+
+                    // 创建一个 Marker 实例：
+                    var marker = new AMap.Marker({
+                        position: new AMap.LngLat(longitude, latitude),   // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
+                        title: sensorNumber,
+                        offset: new AMap.Pixel(-30, -30),
+                        icon:'img/redMarker4.jpg', // 添加 Icon 图标 URL
+                        zoom: 13
+                    });
+
+                    // 将创建的点标记添加到已有的地图实例：
+                    map.add(marker);
+                }
+
+            }
+        });
+
+
+
+
 
 
         var icon = new AMap.Icon({
@@ -78,17 +106,7 @@
 
 
 
-        // 创建一个 Marker 实例：
-        var marker = new AMap.Marker({
-            position: new AMap.LngLat(118.9334800000, 32.1560600000),   // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
-            title: '家',
-            offset: new AMap.Pixel(-30, -30),
-            icon:'img/redMarker4.jpg', // 添加 Icon 图标 URL
-            zoom: 13
-        });
 
-        // 将创建的点标记添加到已有的地图实例：
-        map.add(marker);
 
      //   map.remove(marker);
         AMap.plugin('AMap.ElasticMarker', function () {//异步加载插件
@@ -103,6 +121,12 @@
 
         });
     }
+
+
+
+
+
+
 </script>
 </body>
 </html>
