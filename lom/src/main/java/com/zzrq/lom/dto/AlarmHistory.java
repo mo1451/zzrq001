@@ -2,13 +2,16 @@ package com.zzrq.lom.dto;
 
 import javax.persistence.Table;
 import java.util.Date;
+/**
+ * @author mo1451
+ */
 @Table(name = "alarm_history")
 public class AlarmHistory {
     private Long  id;
     private Long  alarmId;
     private Date alarmDate;
     private Date alarmProcessingDate;
-    private String alarmProcessingStatus;
+    private Integer alarmProcessingStatus;
 
     @Override
     public String toString() {
@@ -53,11 +56,11 @@ public class AlarmHistory {
         this.alarmProcessingDate = alarmProcessingDate;
     }
 
-    public String getAlarmProcessingStatus() {
+    public Integer getAlarmProcessingStatus() {
         return alarmProcessingStatus;
     }
 
-    public void setAlarmProcessingStatus(String alarmProcessingStatus) {
+    public void setAlarmProcessingStatus(Integer alarmProcessingStatus) {
         this.alarmProcessingStatus = alarmProcessingStatus;
     }
 }

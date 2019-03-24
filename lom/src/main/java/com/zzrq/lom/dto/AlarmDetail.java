@@ -1,6 +1,8 @@
 package com.zzrq.lom.dto;
 
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import java.util.Date;
 
 @Table(name = "alarm_detail")
 public class AlarmDetail {
@@ -16,6 +18,12 @@ public class AlarmDetail {
     private String address;
     private Double longitude;
     private Double latitude;
+    @Transient
+    private Integer alarmProcessingStatus;
+    @Transient
+    private Date alarmDate;
+    @Transient
+    private Date alarmProcessingDate;
 
     @Override
     public String toString() {
@@ -24,7 +32,7 @@ public class AlarmDetail {
                 ", alarmId=" + alarmId +
                 ", nodeId=" + nodeId +
                 ", gatewayId=" + gatewayId +
-                ", sensorNumber=" + sensorNumber +
+                ", sensorNumber='" + sensorNumber + '\'' +
                 ", nodeName='" + nodeName + '\'' +
                 ", gatewayName='" + gatewayName + '\'' +
                 ", userName='" + userName + '\'' +
@@ -32,7 +40,35 @@ public class AlarmDetail {
                 ", address='" + address + '\'' +
                 ", longitude=" + longitude +
                 ", latitude=" + latitude +
+                ", alarmProcessingStatus=" + alarmProcessingStatus +
+                ", alarmDate=" + alarmDate +
+                ", alarmProcessingDate=" + alarmProcessingDate +
                 '}';
+    }
+
+    public Date getAlarmProcessingDate() {
+        return alarmProcessingDate;
+    }
+
+    public void setAlarmProcessingDate(Date alarmProcessingDate) {
+        this.alarmProcessingDate = alarmProcessingDate;
+    }
+
+    public Date getAlarmDate() {
+
+        return alarmDate;
+    }
+
+    public void setAlarmDate(Date alarmDate) {
+        this.alarmDate = alarmDate;
+    }
+
+    public Integer getAlarmProcessingStatus() {
+        return alarmProcessingStatus;
+    }
+
+    public void setAlarmProcessingStatus(Integer alarmProcessingStatus) {
+        this.alarmProcessingStatus = alarmProcessingStatus;
     }
 
     public Double getLongitude() {

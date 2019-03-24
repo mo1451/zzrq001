@@ -9,15 +9,19 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @author mo1451
+ */
 @Service
-public class AlarmDetailServicelmpl implements AlarmDetailService {
+public class AlarmDetailServiceImpl implements AlarmDetailService {
     @Autowired
     private AlarmDetailMapper detailMapper;
 
     @Override
     public ResponseData query(AlarmDetail alarmDetail) {
 
-        List<AlarmDetail> alarmDetails = detailMapper.select(alarmDetail);
+        List<AlarmDetail> alarmDetails = detailMapper.selectInfo(alarmDetail);
+
         return new ResponseData(alarmDetails);
     }
 }
