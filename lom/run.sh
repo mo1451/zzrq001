@@ -1,4 +1,11 @@
+echo ">>> git pull"
+git pull
 
+echo ">>> mvn clean package"
+mvn clean package
+
+echo ">>> cd target"
+cd target
 
 JAR=lom-0.0.1-SNAPSHOT.jar
 MPORT=8070
