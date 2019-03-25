@@ -7,6 +7,9 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+/**
+ * @author mo1451
+ */
 @Configuration
 public class MyMvcConfig extends WebMvcConfigurerAdapter {
 
@@ -27,7 +30,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
                 //SpringBoot已经做好了静态资源映射
                 registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**")
                         .excludePathPatterns("/login","/","/defaultKaptcha","/webjars/**",
-                                "/img/**","/css/**");
+                                "/img/**","/css/**","/js/**");
             }
         };
         return adapter;

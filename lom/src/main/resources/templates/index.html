@@ -1,5 +1,5 @@
 <script type="text/javascript" src="webjars/jquery/3.3.1/jquery.js"></script>
-    <link href="webjars/bootstrap/4.0.0/css/bootstrap.css" rel="stylesheet">
+<link href="webjars/bootstrap/4.0.0/css/bootstrap.css" rel="stylesheet">
 </head>
 <style>
     #container {
@@ -21,11 +21,13 @@
 <div class="row" style="height: 90%">
     <div class="col-md-3">
         <div class="row" style="height:290px;">
-            <img class="mb-4" src="/img/001.jpg" alt="" width="100%" height="100%">
+            <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+            <div id="leftTop" style="width: 350px;height:300px;margin-left: 10px;"></div>
         </div>
 
         <div class="row" style="height:290px;">
-            <img class="mb-4" src="/img/001.jpg" alt="" width="100%" height="100%">
+            <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+            <div id="leftBom" style="width: 350px;height:300px;margin-left: 10px;"></div>
         </div>
     </div>
 
@@ -50,13 +52,16 @@
             <!--<img class="mb-4" src="/img/001.jpg" alt="" width="100%" height="100%">-->
         </div>
         <div class="row">
-           <!-- <img class="mb-4" src="/img/001.jpg" alt="" width="100%" height="100%">-->
+            <!-- <img class="mb-4" src="/img/001.jpg" alt="" width="100%" height="100%">-->
         </div>
     </div>
 </div>
 <script type="text/javascript"
         src="https://webapi.amap.com/maps?v=1.4.13&key=93610b75106543750abcc30991592462"></script>
+<!-- 引入 ECharts 文件 -->
+<script src="/js/echarts.js"></script>
 <script>
+
 
     // 对Date的扩展，将 Date 转化为指定格式的String
     // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
@@ -64,80 +69,83 @@
     // 例子：
     // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423
     // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18
-    Date.prototype.Format = function(fmt)
-    { //author: meizz
-        var o = {
-            "M+" : this.getMonth()+1,                 //月份
-            "d+" : this.getDate(),                    //日
-            "h+" : this.getHours(),                   //小时
-            "m+" : this.getMinutes(),                 //分
-            "s+" : this.getSeconds(),                 //秒
-            "q+" : Math.floor((this.getMonth()+3)/3), //季度
-            "S"  : this.getMilliseconds()             //毫秒
+    Date.prototype.Format = function (fmt) { //author: meizz
+        let o = {
+            "M+": this.getMonth() + 1,                 //月份
+            "d+": this.getDate(),                    //日
+            "h+": this.getHours(),                   //小时
+            "m+": this.getMinutes(),                 //分
+            "s+": this.getSeconds(),                 //秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+            "S": this.getMilliseconds()             //毫秒
         };
-        if(/(y+)/.test(fmt))
-            fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
-        for(var k in o)
-            if(new RegExp("("+ k +")").test(fmt))
-                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (let k in o)
+            if (new RegExp("(" + k + ")").test(fmt))
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
         return fmt;
+    };
+
+    function markDetail(data) {
+        //   console.log(data);
+        debugger;
+        console.log(this);
+        if (this.alarmProcessingStatus === 1) {
+            let alarmDate = new Date(this.alarmDate);
+            alert("报警器：" + this.sensorNumber + ",于" + alarmDate.Format("yyyy-MM-dd hh:mm:ss") + "开始报警");
+        }
+
     }
+
+    let icon_r = new AMap.Icon({
+        size: new AMap.Size(30, 20),    // 图标尺寸
+        image: 'img/mark_r.png',  // Icon的图像
+        //    imageOffset: new AMap.Pixel(0, -60),  // 图像相对展示区域的偏移量，适于雪碧图等
+        imageSize: new AMap.Size(15, 20)   // 根据所设置的大小拉伸或压缩图片
+    });
+
+    let icon_b = new AMap.Icon({
+        size: new AMap.Size(30, 20),    // 图标尺寸
+        image: 'img/mark_b.png',  // Icon的图像
+        //     imageOffset: new AMap.Pixel(0, -60),  // 图像相对展示区域的偏移量，适于雪碧图等
+        imageSize: new AMap.Size(15, 20)   // 根据所设置的大小拉伸或压缩图片
+    });
+
 
     window.onload = function () {
 
-        var map = new AMap.Map('container', {
+        let map = new AMap.Map('container', {
             zoom: 20,
             center: [119.9358300000, 32.1560600000]
         });
 
-        function markDetail(data) {
-         //   console.log(data);
-            debugger;
-            console.log(this);
-            if(this.alarmProcessingStatus === 1) {
-                var alarmDate = new Date(this.alarmDate);
-                alert("报警器：" + this.sensorNumber + ",于" +alarmDate.Format("yyyy-MM-dd hh:mm:ss") + "开始报警");
-            }
 
-        }
-        var icon_r = new AMap.Icon({
-            size: new AMap.Size(30, 20),    // 图标尺寸
-            image: 'img/mark_r.png',  // Icon的图像
-            //    imageOffset: new AMap.Pixel(0, -60),  // 图像相对展示区域的偏移量，适于雪碧图等
-            imageSize: new AMap.Size(15, 20)   // 根据所设置的大小拉伸或压缩图片
-        });
 
-        var icon_b = new AMap.Icon({
-            size: new AMap.Size(30, 20),    // 图标尺寸
-            image: 'img/mark_b.png',  // Icon的图像
-            //     imageOffset: new AMap.Pixel(0, -60),  // 图像相对展示区域的偏移量，适于雪碧图等
-            imageSize: new AMap.Size(15, 20)   // 根据所设置的大小拉伸或压缩图片
-        });
 
         $.ajax({
             type: "Post",
             url: "alarm/detail/query",
             dataType: "json",
-            success: function(data){
+            success: function (data) {
                 debugger;
-                for (var i = 0; i < data.rows.length; i++) {
-                    var sensorNumber = data.rows[i].sensorNumber;
-                    var longitude = data.rows[i].longitude;
-                    var latitude = data.rows[i].latitude;
-                    var alarmProcessingStatus = data.rows[i].alarmProcessingStatus;
-                    var marker;
+                for (let i = 0; i < data.rows.length; i++) {
+                    let sensorNumber = data.rows[i].sensorNumber;
+                    let longitude = data.rows[i].longitude;
+                    let latitude = data.rows[i].latitude;
+                    let alarmProcessingStatus = data.rows[i].alarmProcessingStatus;
+                    let marker;
 
 
-
-                    if(alarmProcessingStatus === 1) {
+                    if (alarmProcessingStatus === 1) {
                         // 创建一个 Marker 实例：
                         marker = new AMap.Marker({
                             position: new AMap.LngLat(longitude, latitude),   // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
                             title: sensorNumber,
                             label: '1',
-                      //      content:'1',
-                       //     offset: new AMap.Pixel(-30, -30),
-                            icon:icon_r, // 添加 Icon 图标 URL
+                            //      content:'1',
+                            //     offset: new AMap.Pixel(-30, -30),
+                            icon: icon_r, // 添加 Icon 图标 URL
                             /* iconStyle: {
 
                                  src: '//webapi.amap.com/theme/v1.3/markers/b/mark_b.png',
@@ -158,7 +166,7 @@
                             title: sensorNumber,
                             label: '1',
                             offset: new AMap.Pixel(-30, -30),
-                            icon:icon_b, // 添加 Icon 图标 URL
+                            icon: icon_b, // 添加 Icon 图标 URL
                             /* iconStyle: {
 
                                  src: '//webapi.amap.com/theme/v1.3/markers/b/mark_b.png',
@@ -175,7 +183,7 @@
                         });
                     }
 
-                    marker.on('click',markDetail,data.rows[i]);
+                    marker.on('click', markDetail, data.rows[i]);
                     // 将创建的点标记添加到已有的地图实例：
                     map.add(marker);
                 }
@@ -184,11 +192,9 @@
         });
 
 
-
-
-     //   map.remove(marker);
+        //   map.remove(marker);
         AMap.plugin('AMap.ElasticMarker', function () {//异步加载插件
-            /*var marker = new AMap.Marker({
+            /*let marker = new AMap.Marker({
                 position: new AMap.LngLat(118.9334800000, 32.1560600000),
                 offset: new AMap.Pixel(-10, -10),
                 icon: 'img/redMarker.png', // 添加 Icon 图标 URL
@@ -198,11 +204,64 @@
 
 
         });
+
+
+
+
+        // 基于准备好的dom，初始化echarts实例
+        let leftTopChart = echarts.init(document.getElementById('leftTop'));
+
+        // 指定图表的配置项和数据
+        let leftTopOption = {
+            title: {
+                text: '月报警数'
+            },
+            tooltip: {},
+            legend: {
+                data:['次数']
+            },
+            xAxis: {
+                data: ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"]
+            },
+            yAxis: {},
+            series: [{
+                name: '次数',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20, 5, 20, 36, 10, 10, 20]
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        leftTopChart.setOption(leftTopOption);
+
+
+
+        // 基于准备好的dom，初始化echarts实例
+        let leftBomChart = echarts.init(document.getElementById('leftBom'));
+
+        // 指定图表的配置项和数据
+        let leftBomOption = {
+            title: {
+                text: '本月报警数'
+            },
+            tooltip: {},
+            legend: {
+                data:['次数']
+            },
+            xAxis: {
+                data: ["第一周","第二周","第三周","第四周"]
+            },
+            yAxis: {},
+            series: [{
+                name: '次数',
+                type: 'bar',
+                data: [5, 20, 36, 10]
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        leftBomChart.setOption(leftBomOption);
     }
-
-
-
-
 
 
 </script>

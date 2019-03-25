@@ -23,6 +23,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/config/MyMvcConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/controller/LoginController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/dto/AlarmDetail.java">
           <value>
             <set />

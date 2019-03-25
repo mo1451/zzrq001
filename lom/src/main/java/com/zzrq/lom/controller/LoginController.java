@@ -17,6 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 
+/**
+ * @author mo1451
+ */
 @Controller
 public class LoginController {
 
@@ -32,10 +35,10 @@ public class LoginController {
     public ModelAndView checkLogin(HttpServletRequest httpServletRequest,String inputUser,String inputPassword,String inputCode) {
         ModelAndView andView = new ModelAndView();
         String verifyCode = (String) httpServletRequest.getSession().getAttribute("verifyCode");
-     //   String parameter = httpServletRequest.getParameter("verifyCode");
+        /* String parameter = httpServletRequest.getParameter("verifyCode"); */
         System.out.println("Session  verifyCode "+verifyCode+" form verifyCode "+inputCode);
 
-        if (!verifyCode.equals(inputCode)) {
+        if (!verifyCode.equalsIgnoreCase(inputCode)) {
             andView.addObject("msg", "错误的验证码");
             andView.setViewName("login");
         } else {
