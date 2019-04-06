@@ -1,12 +1,15 @@
 package com.zzrq.lom.config;
 
+import java.util.Properties;
+
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import com.google.code.kaptcha.util.Config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.Properties;
-
+/**
+ * @author mo1451
+ */
 @Configuration
 public class KaptchaConfig {
     @Bean

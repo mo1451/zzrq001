@@ -1,11 +1,14 @@
 package com.zzrq.lom.lnterceptor;
 
-import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
+
+/**
+ * @author mo1451
+ */
 public class LoginInterceptor implements HandlerInterceptor  {
     
     
@@ -17,7 +20,6 @@ public class LoginInterceptor implements HandlerInterceptor  {
             //未登陆，返回登陆页面
             request.setAttribute("msg","没有权限请先登陆");
             response.sendRedirect("login");
-      //      request.getRequestDispatcher("login").forward(request,response);
             return false;
         } else {
             return true;

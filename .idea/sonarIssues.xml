@@ -8,6 +8,11 @@
             <set />
           </value>
         </entry>
+        <entry key="/File Header.txt.ft">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="/a.dummy">
           <value>
             <set />
@@ -28,12 +33,102 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/LomApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/alarm/controller/AlarmDetailController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/alarm/controller/AlarmHistoryController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/alarm/dto/AlarmDetail.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/alarm/dto/AlarmHistory.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/alarm/dto/AlarmReceivedData.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/alarm/mapper/AlarmReceivedDataMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/alarm/runner/AlarmReceivedDataRunner.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/alarm/service/AlarmDetailService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/alarm/service/AlarmHistoryService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/alarm/service/AlarmReceivedDataService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/alarm/service/impl/AlarmDetailServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/alarm/service/impl/AlarmHistoryServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/alarm/service/impl/AlarmReceivedDataServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/config/DruidConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/config/KaptchaConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/config/MyMvcConfig.java">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/controller/AlarmDetailController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/controller/AlarmHistoryController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/controller/IndexController.java">
           <value>
             <set />
           </value>
@@ -53,12 +148,112 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/dto/ResponseData.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/dto/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/lnterceptor/LoginInterceptor.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/login/service/impl/UserServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/mapper/AlarmDetailMapper.java">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/mapper/AlarmHistoryMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/mapper/UserMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/service/AlarmDetailService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/service/AlarmHistoryService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/service/UserService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/service/impl/AlarmDetailServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/service/impl/AlarmHistoryServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/service/impl/UserServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/sys/SysConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/sys/dto/SysConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/sys/mapper/SysConfigMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/sys/service/SysConfigService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/sys/service/impl/SysConfigServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/utils/ResponseData.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/utils/SysConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/resources/application.yaml">
           <value>
             <set />
           </value>
@@ -103,12 +298,47 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/resources/templates/alarmHistory.html">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/lom/src/main/resources/templates/index.html">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/lom/src/main/resources/templates/login.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/resources/templates/userChange.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../JavaLinkKitDemo/device_id.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../JavaLinkKitDemo/src/main/java/com/aliyun/alink/devicesdk/demo/HelloWorld.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../JavaLinkKitDemo/src/main/java/com/aliyun/alink/devicesdk/demo/ThingSample.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../JavaLinkKitDemo/test_case.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../http2-server-side-demo/src/main/java/com/aliyun/iot/demo/H2Client.java">
           <value>
             <set />
           </value>

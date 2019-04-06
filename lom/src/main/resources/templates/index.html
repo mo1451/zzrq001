@@ -39,7 +39,7 @@
 
         </div>
         <div class="col-md-2">
-            <button class="button btn-primary" style="margin-top: 1px;">用户设置</button>
+            <button class="button btn-primary userChange" style="margin-top: 1px;">用户设置</button>
         </div>
     </div>
 
@@ -64,8 +64,8 @@
 
             <div class="row" style="height:10%;margin-left: 5px;margin-top: 10px;">
                 <div>
-                    <button class="button btn-primary" style="margin-right: 20px">消音</button>
-                    <button class="button btn-primary">报警详情</button>
+                    <button class="button btn-primary discharge" style="margin-right: 20px">消音</button>
+                    <button class="button btn-primary history">报警详情</button>
                 </div>
 
 
@@ -178,6 +178,28 @@
             shade: 0.8,
             area: ['1000px', '80%'],
             content: '/alarm/detail' //iframe的url
+        });
+    });
+
+    $(".history").click(function () {
+        layer.open({
+            type: 2,
+            title: '用户设置',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['1000px', '80%'],
+            content: '/alarm/history' //iframe的url
+        });
+    });
+
+    $(".userChange").click(function () {
+        layer.open({
+            type: 2,
+            title: '用户设置',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['1000px', '80%'],
+            content: '/user/change' //iframe的url
         });
     });
     /*window.onload = function() {
