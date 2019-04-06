@@ -90,7 +90,7 @@ public class AlarmReceivedDataServiceImpl implements AlarmReceivedDataService {
                     receivedData.setPropSensor(propSensor);
                     receivedDataMapper.insertSelective(receivedData);
 
-                    if("0".equals(propBool)) {
+                    if("1".equals(propBool)) {
                         AlarmDetail alarmDetail = detailService.queryAlarm(propSensor, propControl, deviceName);
                         if(alarmDetail != null) {
                             AlarmHistory history = new AlarmHistory();
