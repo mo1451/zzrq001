@@ -1,11 +1,11 @@
 package com.zzrq.lom.login.controller;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 import com.zzrq.lom.login.dto.User;
 import com.zzrq.lom.login.mapper.UserMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class IndexController {
 
-    @Autowired
+    @Resource
     private UserMapper userMapper;
 
     @GetMapping(value = "index")

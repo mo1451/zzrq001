@@ -1,12 +1,12 @@
 package com.zzrq.lom.alarm.controller;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.zzrq.lom.alarm.dto.AlarmHistory;
 import com.zzrq.lom.alarm.service.AlarmHistoryService;
 import com.zzrq.lom.utils.ResponseData;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class AlarmHistoryController {
 
-    @Autowired
+    @Resource(name="alarmHistoryServiceImpl")
     private AlarmHistoryService alarmHistoryService;
 
     @PostMapping(value = "alarm/history/query")

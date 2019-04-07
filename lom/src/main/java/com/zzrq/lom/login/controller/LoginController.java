@@ -1,5 +1,6 @@
 package com.zzrq.lom.login.controller;
 
+import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
 
-    @Autowired
+    @Resource(name = "userServiceImpl")
     private UserService userService;
 
     @GetMapping(value = "login")
