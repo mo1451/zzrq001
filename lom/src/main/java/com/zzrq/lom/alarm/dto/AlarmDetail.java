@@ -12,9 +12,9 @@ public class AlarmDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long  id;
-    private Long  alarmId;
-    private Long nodeId;
-    private Long gatewayId;
+    private String  alarmId;
+    private String nodeId;
+    private String gatewayId;
     /**
      * 传感器
      */
@@ -109,27 +109,27 @@ public class AlarmDetail {
         this.id = id;
     }
 
-    public Long getAlarmId() {
+    public String getAlarmId() {
         return alarmId;
     }
 
-    public void setAlarmId(Long alarmId) {
+    public void setAlarmId(String alarmId) {
         this.alarmId = alarmId;
     }
 
-    public Long getNodeId() {
+    public String getNodeId() {
         return nodeId;
     }
 
-    public void setNodeId(Long nodeId) {
+    public void setNodeId(String nodeId) {
         this.nodeId = nodeId;
     }
 
-    public Long getGatewayId() {
+    public String getGatewayId() {
         return gatewayId;
     }
 
-    public void setGatewayId(Long gatewayId) {
+    public void setGatewayId(String gatewayId) {
         this.gatewayId = gatewayId;
     }
 

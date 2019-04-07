@@ -63,6 +63,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/alarm/mapper/AlarmHistoryMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/alarm/mapper/AlarmReceivedDataMapper.java">
           <value>
             <set />
@@ -163,6 +168,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/login/controller/IndexController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/login/controller/LoginController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/lom/src/main/java/com/zzrq/lom/login/service/impl/UserServiceImpl.java">
           <value>
             <set />
@@ -254,6 +269,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/lom/src/main/resources/application.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/resources/com/zzrq/lom/alarm/mapper/AlarmDetailMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/lom/src/main/resources/com/zzrq/lom/alarm/mapper/AlarmHistoryMapper.xml">
           <value>
             <set />
           </value>

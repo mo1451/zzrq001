@@ -15,7 +15,7 @@ import tk.mybatis.mapper.entity.Example;
 @Service
 public class SysConfigServiceImpl implements SysConfigService {
 
-    @Resource
+    @Resource(name="sysConfigMapper")
     private SysConfigMapper sysConfigMapper;
 
     @Override

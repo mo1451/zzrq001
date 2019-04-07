@@ -1,11 +1,11 @@
 package com.zzrq.lom.login.service.impl;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 import com.zzrq.lom.login.dto.User;
 import com.zzrq.lom.login.mapper.UserMapper;
 import com.zzrq.lom.login.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
@@ -15,7 +15,7 @@ import tk.mybatis.mapper.entity.Example;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Resource
+    @Autowired
     private UserMapper userMapper;
 
     @Override

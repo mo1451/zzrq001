@@ -29,11 +29,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class AlarmReceivedDataServiceImpl implements AlarmReceivedDataService {
     private Logger logger = LoggerFactory.getLogger(AlarmReceivedDataServiceImpl.class);
-    @Resource
+    @Resource(name="alarmReceivedDataMapper")
     private AlarmReceivedDataMapper receivedDataMapper;
     @Resource(name = "alarmDetailServiceImpl")
     private AlarmDetailService detailService;
-    @Resource
+    @Resource(name="alarmHistoryMapper")
     private AlarmHistoryMapper historyMapper;
     @Resource(name = "sysConfigServiceImpl")
     private SysConfigService configService;

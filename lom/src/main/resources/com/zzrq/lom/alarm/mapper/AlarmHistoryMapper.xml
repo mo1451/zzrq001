@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zzrq.lom.alarm.mapper.AlarmHistoryMapper">
+    <resultMap id="BaseResultMap" type="com.zzrq.lom.alarm.dto.AlarmHistory">
+        <result column="id" property="id"/>
+        <result column="alarm_id" property="alarmId"/>
+        <result column="alarm_date" property="alarmDate"/>
+        <result column="alarm_processing_date" property="alarmProcessingDate"/>
+        <result column="alarm_processing_status" property="alarmProcessingStatus"/>
+        <result column="count" property="count"/>
+        <result column="group_name" property="groupName"/>
+        <result column="group_date" property="groupDate"/>
+        <result column="first_month" property="firstMonth"/>
+    </resultMap>
+
+    <select id="selectAlarmDetailByMonthByControl" parameterType="com.zzrq.lom.alarm.dto.AlarmHistory"
+            resultMap="BaseResultMap">
+        SELECT
+            DATE_FORMAT(ah.alarm_date, '%U') AS group_date,
+            DATE_FORMAT(
+                DATE_ADD(
+                    curdate(),
+                    INTERVAL - DAY (curdate()) + 1 DAY
+                ),
+                '%U'
+            ) AS first_month,
+            count(*) AS count,
+            ad.node_name AS group_name
+        FROM
+            alarm_history ah,
+            alarm_detail ad
+        WHERE
+            ah.alarm_id = ad.id
+        AND DATE_FORMAT(ah.alarm_date, '%Y%M') = DATE_FORMAT(SYSDATE(), '%Y%M')
+        GROUP BY
+            DATE_FORMAT(ah.alarm_date, '%U'),
+            ad.node_name
+    </select>
+
+    <select id="selectAlarmDetailByYearByControl" parameterType="com.zzrq.lom.alarm.dto.AlarmHistory"
+            resultMap="BaseResultMap">
+        SELECT
+            DATE_FORMAT(ah.alarm_date, '%m') AS group_date,
+            count(*) AS count,
+            ad.node_name AS group_name
+        FROM
+            alarm_history ah,
+            alarm_detail ad
+        WHERE
+            ah.alarm_id = ad.id
+        AND DATE_FORMAT(ah.alarm_date, '%Y') = DATE_FORMAT(SYSDATE(), '%Y')
+        GROUP BY
+            DATE_FORMAT(ah.alarm_date, '%m'),
+            ad.node_name
+    </select>
+
+    <select id="selectAlarmDetailByYearByGateway" parameterType="com.zzrq.lom.alarm.dto.AlarmHistory"
+            resultMap="BaseResultMap">
+        SELECT
+            DATE_FORMAT(ah.alarm_date, '%m') AS group_date,
+            count(*) AS count,
+            ad.gateway_name AS group_name
+        FROM
+            alarm_history ah,
+            alarm_detail ad
+        WHERE
+            ah.alarm_id = ad.id
+        AND DATE_FORMAT(ah.alarm_date, '%Y') = DATE_FORMAT(SYSDATE(), '%Y')
+        GROUP BY
+            DATE_FORMAT(ah.alarm_date, '%m'),
+            ad.gateway_name
+    </select>
+
+</mapper>

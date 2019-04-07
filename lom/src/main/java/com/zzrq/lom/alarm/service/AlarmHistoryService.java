@@ -14,5 +14,9 @@ public interface AlarmHistoryService {
      */
     ResponseData query(AlarmHistory alarmHistory);
 
+    ResponseData selectAlarmDetailByMonthByControl();
 
+    ResponseData selectAlarmDetailByYearByControl();
+
+    ResponseData selectAlarmDetailByYearByGateway();
 }

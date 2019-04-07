@@ -31,4 +31,24 @@ public class AlarmHistoryController {
     public String alarmDetail() {
         return "alarmHistory";
     }
+
+    @GetMapping(value = "alarm/history/by/year/by/gateway")
+    @ResponseBody
+    public ResponseData alarmDetailByYearByGateway() {
+        return alarmHistoryService.selectAlarmDetailByYearByGateway();
+    }
+
+    @GetMapping(value = "alarm/history/by/year/by/control")
+    @ResponseBody
+    public ResponseData alarmDetailByYearByControl() {
+        return alarmHistoryService.selectAlarmDetailByYearByControl();
+    }
+
+    @GetMapping(value = "alarm/history/by/month/by/control")
+    @ResponseBody
+    public ResponseData alarmDetailByMonthByControl() {
+        return alarmHistoryService.selectAlarmDetailByMonthByControl();
+    }
+
+
 }

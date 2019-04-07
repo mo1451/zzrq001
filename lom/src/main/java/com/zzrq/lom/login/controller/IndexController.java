@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class IndexController {
 
-    @Resource
+    @Resource(name="userMapper")
     private UserMapper userMapper;
 
     @GetMapping(value = "index")

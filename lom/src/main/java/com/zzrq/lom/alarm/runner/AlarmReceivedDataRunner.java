@@ -2,7 +2,7 @@ package com.zzrq.lom.alarm.runner;
 
 import javax.annotation.Resource;
 
-import com.zzrq.lom.alarm.service.impl.AlarmReceivedDataServiceImpl;
+import com.zzrq.lom.alarm.service.AlarmReceivedDataService;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -14,8 +14,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class AlarmReceivedDataRunner implements ApplicationRunner {
 
-    @Resource
-    private AlarmReceivedDataServiceImpl receivedDataService;
+    @Resource(name="alarmReceivedDataServiceImpl")
+    private AlarmReceivedDataService receivedDataService;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
